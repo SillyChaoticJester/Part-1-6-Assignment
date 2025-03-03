@@ -6,10 +6,8 @@
         {
             //What to do:
             // - Make a multi-round loop that can end at any time
-            // - Make multiple if statements for the different bets
-            // - Make sure you can do invalid choices for the bet
+            // - Make sure you can't do invalid choices for the bet
             // - Make a summary screen
-            // - Draw the dice.
 
             decimal userMoney = 100M, userBet;
             int rounds = 0;
@@ -26,6 +24,7 @@
             {
                 while (!done)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Here's all that you can bet on:");
                     Console.WriteLine("- Doubles: Win Twice the amount you Bet on.");
                     Console.WriteLine("- Even Sum: Win your Bet amount");
