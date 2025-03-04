@@ -33,19 +33,21 @@
                     {
                         Console.WriteLine();
                         Console.WriteLine("You chose Doubles! How much would you like to bet?");
+                        Console.WriteLine($"You currently have ${userMoney} to bet with.");
                         while (!Decimal.TryParse(Console.ReadLine(), out userBet))
                             Console.WriteLine("Invalid Integer, please try again:");
-
                         while (userBet < 0)
+                        {
                             Console.WriteLine("You cannot bet a negative amount. Please try again: ");
                             while (!Decimal.TryParse(Console.ReadLine(), out userBet))
                                 Console.WriteLine("Invalid Integer, please try again:");
-
-                        while (userBet > userMoney) 
+                        }
+                        while (userBet > userMoney)
+                        {
                             Console.WriteLine("You cannot bet more than what you have. Please try again: ");
                             while (!Decimal.TryParse(Console.ReadLine(), out userBet))
                                 Console.WriteLine("Invalid Integer, please try again:");
-
+                        }
                         Console.WriteLine();
                         betTotal += userBet;
                         die1.DrawDie();
@@ -68,48 +70,51 @@
                         Console.WriteLine();
                         Console.WriteLine("Would you like to continue?");
                         choice = Console.ReadLine().ToLower().Trim();
-                        while (choice != "yes" || choice != "no")
-                            if (choice == "yes")
-                            {
-                                done = true;
-                                Console.WriteLine($"Ok! Here's how much money you have left then: ${userMoney}");
-                                Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
-                            }
-                            else if (choice == "no")
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
-                                Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
-                            }
-                            else
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine("That's not an option.");
-                            }
+                        if (choice == "yes")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
+                            Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
+                        }
+                        else if (choice == "no")
+                        {
+                            done = true;
+                            Console.WriteLine();
+                            Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
+                            Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("That's not an option. Automatically continuing.");
+                        }
                     }
                     else if (betType == "even sum")
                     {
                         Console.WriteLine();
                         Console.WriteLine("You chose Even Sum! How much would you like to bet?");
+                        Console.WriteLine($"You currently have ${userMoney} to bet with.");
                         while (!Decimal.TryParse(Console.ReadLine(), out userBet))
                             Console.WriteLine("Invalid Integer, please try again:");
-
-                        while (userBet < 0)
+                        while (userBet < 0M)
+                        {
                             Console.WriteLine("You cannot bet a negative amount. Please try again: ");
-                        while (!Decimal.TryParse(Console.ReadLine(), out userBet))
-                            Console.WriteLine("Invalid Integer, please try again:");
-
+                            while (!Decimal.TryParse(Console.ReadLine(), out userBet))
+                                Console.WriteLine("Invalid Integer, please try again:");
+                        }
                         while (userBet > userMoney)
+                        {
                             Console.WriteLine("You cannot bet more than what you have. Please try again: ");
-                        while (!Decimal.TryParse(Console.ReadLine(), out userBet))
-                            Console.WriteLine("Invalid Integer, please try again:");
+                            while (!Decimal.TryParse(Console.ReadLine(), out userBet))
+                                Console.WriteLine("Invalid Integer, please try again:");
+                        }
 
                         Console.WriteLine();
                         betTotal += userBet;
                         die1.DrawDie();
                         die2.DrawDie();
                         Console.WriteLine();
-                        Console.WriteLine("Your sum equals to" + (die1.Roll + die2.Roll));
+                        Console.WriteLine("Your sum equals to " + (die1.Roll + die2.Roll));
                         if (die1.Roll + die2.Roll % 2 == 0)
                         {
                             Console.WriteLine();
@@ -127,48 +132,53 @@
                         Console.WriteLine();
                         Console.WriteLine("Would you like to continue?");
                         choice = Console.ReadLine().ToLower().Trim();
-                        while (choice != "yes" || choice != "no")
-                            if (choice == "yes")
-                            {
-                                done = true;
-                                Console.WriteLine($"Ok! Here's how much money you have left then: ${userMoney}");
-                                Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
-                            }
-                            else if (choice == "no")
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine($"Ok! Here's how much you've won: ${userMoney}");
-                                Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
-                            }
-                            else
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine("That's not an option.");
-                            }
+                        if (choice == "yes")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
+                            Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
+                        }
+                        else if (choice == "no")
+                        {
+                            done = true;
+                            Console.WriteLine();
+                            Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
+                            Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("That's not an option. Automatically continuing.");
+                        }
                     }
                     else if (betType == "odd sum")
                     {
                         Console.WriteLine();
                         Console.WriteLine("You chose Odd Sum! How much would you like to bet?");
+                        Console.WriteLine($"You currently have ${userMoney} to bet with.");
                         while (!Decimal.TryParse(Console.ReadLine(), out userBet))
                             Console.WriteLine("Invalid Integer, please try again:");
 
                         while (userBet < 0)
+                        {
                             Console.WriteLine("You cannot bet a negative amount. Please try again: ");
-                        while (!Decimal.TryParse(Console.ReadLine(), out userBet))
-                            Console.WriteLine("Invalid Integer, please try again:");
+                            while (!Decimal.TryParse(Console.ReadLine(), out userBet))
+                                Console.WriteLine("Invalid Integer, please try again:");
+                        }
 
                         while (userBet > userMoney)
+                        {
                             Console.WriteLine("You cannot bet more than what you have. Please try again: ");
-                        while (!Decimal.TryParse(Console.ReadLine(), out userBet))
-                            Console.WriteLine("Invalid Integer, please try again:");
+                            while (!Decimal.TryParse(Console.ReadLine(), out userBet))
+                                Console.WriteLine("Invalid Integer, please try again:");
+                        }
 
                         Console.WriteLine();
                         betTotal += userBet;
                         die1.DrawDie();
                         die2.DrawDie();
                         Console.WriteLine();
-                        Console.WriteLine("Your sum equals to" + (die1.Roll + die2.Roll));
+                        Console.WriteLine("Your sum equals to " + (die1.Roll + die2.Roll));
                         if (die1.Roll + die2.Roll % 2 == 0)
                         {
                             Console.WriteLine();
@@ -186,24 +196,24 @@
                         Console.WriteLine();
                         Console.WriteLine("Would you like to continue?");
                         choice = Console.ReadLine().ToLower().Trim();
-                        while (choice != "yes" || choice != "no")
-                            if (choice == "yes")
-                            {
-                                done = true;
-                                Console.WriteLine($"Ok! Here's how much money you have left then: ${userMoney}");
-                                Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
-                            }
-                            else if (choice == "no")
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
-                                Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
-                            }
-                            else
-                            {
-                                Console.WriteLine();
-                                Console.WriteLine("That's not an option.");
-                            }
+                        if (choice == "yes")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
+                            Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
+                        }
+                        else if (choice == "no")
+                        {
+                            done = true;
+                            Console.WriteLine();
+                            Console.WriteLine($"Ok! Here's how much money you have left: ${userMoney}");
+                            Console.WriteLine($"And here's how much you've won or lost: ${betTotal}");
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("That's not an option. Automatically continuing.");
+                        }
                     }
                     else
                     {
